@@ -1,0 +1,46 @@
+.spiner{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 0 30px;
+    .card{
+        min-width: 300px;
+        width: 18%;
+        margin: 12px;
+        .imgBook{
+            height: 400px;
+            width: 100%;
+            border-radius: 0;
+        }
+        .price{
+            margin-top: 20px;
+        }
+        .card-conent{
+            .in-cart{
+                background:  rgb(127, 217, 240);
+                color: #fff;
+                border: 0;
+                box-shadow: 0 0 3px 1px;
+                border-radius: 4px;
+            }
+        }
+    }
+}
+.serch{
+    display: flex;
+    margin: 0 auto;
+    height: 30px;
+    width: 200px;
+    padding-left: 10px;
+}
+.searchForm{
+    display: flex;
+    justify-content: center;
+}

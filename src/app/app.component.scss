@@ -1,0 +1,149 @@
+
+
+.drawer{
+    width: 100vw;
+    height: 100vh;
+}
+
+header{
+    background: rgb(238, 233, 233);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    .header-content{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        .header-icon{
+            color: black;
+            margin-right: 20px;
+        }
+    }
+}
+.drawer-open{
+    margin-left: 30px;
+}
+.drawer-holder-content{
+    background: url('./image/pattern.book.jpg');
+
+    .overlay {
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.9);
+    }
+}
+.active{
+    border-bottom: 2px solid red !important;
+}
+
+.drawer-content{
+    min-width: 300px;
+    position: relative;
+    .profile-container{
+        display: flex;
+        padding: 20px 40px;
+        padding-top: 40px;
+        justify-content: space-between;
+        .item-photo{
+            padding: 0;
+            box-shadow: none;
+            background: transparent;
+            .item-photo-img{
+                height: 100px;
+                width: 100px;
+            }
+        }
+        .item-buttons{
+            button{
+                background: #fff;
+                border: none;
+                box-shadow: 0 0 3px 1px #989898;
+                padding: 10px 15px;
+                cursor: pointer;
+                outline: none;
+            }
+        }
+    }
+    .name-app-container{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-top: 20px;
+        span{
+            display: inline-block;
+            font-size: 18px;
+            font-weight: 600;
+            padding-bottom: 30px;
+            border-bottom: 1px solid black;
+        }
+    }
+    .nav-container{
+        margin-left: 25px;
+        margin-top: 40px;
+        padding-right: 80px;
+        a{
+            display: block;
+            color: black;
+            border-bottom: 2px solid transparent;
+            button{
+                mat-icon{
+                    margin-right: 30px;
+                }
+            }
+        }
+    }
+    .button-container{
+        margin-top: 10px;
+        margin-left: 25px;
+        padding-right: 80px;
+        a{
+            display: block;
+            color: black;
+            border-bottom: 2px solid transparent;
+            button{
+                mat-icon{
+                    margin-right: 30px;
+                }
+            }
+        }
+    }
+ 
+    .button-line{
+        position: fixed;
+        display: inline-block;
+        width: 90px;
+        border-bottom: 1px solid black;
+        bottom: 80px;
+        left: 110px;
+    }
+    .button-logout{
+        position: fixed;
+        bottom: 10px;
+        left: 30px;
+    }
+}
+
+
+
+.drawel-left{
+    margin: 0;
+    padding: 0;
+    padding-top: 50px;
+    width: 100%;
+    li{
+        list-style: none;
+        margin-bottom: 20px;
+        a{
+            text-decoration: none;
+            color:gray;
+        }
+        .active{
+            border-bottom: 2px solid red;
+        }
+    }
+    .holder-link{
+        margin-left: 40px;
+    }
+}

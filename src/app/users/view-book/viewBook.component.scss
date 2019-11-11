@@ -1,0 +1,15 @@
+.select-book-container{
+    width: 100%;
+    display: flex;
+    margin-top: 50px;
+    .select-book-holder{
+        .imgBook{
+            height: auto;
+            width: 500px;
+            border-radius: 0;
+        }
+    }
+    .select-book-inform{
+        margin-left: 10px;
+    }
+}

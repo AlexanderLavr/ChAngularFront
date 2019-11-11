@@ -1,0 +1,17 @@
+.modal-books-item{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    .imgBook{
+        height: auto;
+        width: 50px;
+        border-radius: 0;
+    }
+    span{
+        margin-right: 20px;
+    }
+}
+.modal-books-total-count{
+    text-align: end;
+    padding: 24px;
+}

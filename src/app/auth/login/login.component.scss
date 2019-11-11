@@ -1,0 +1,17 @@
+.container{
+    width: 300px;
+    margin: 50px auto;
+}
+.form-login{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid gray;
+    padding: 20px;
+    .forgot-password{
+        margin: 10px 0;
+        align-self: flex-end;
+        font-size: 12px;
+        cursor: pointer;
+        color: #3890ea;
+    }
+}

@@ -1,0 +1,12 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.container{
+    width: 300px;
+    margin: 50px auto;
+}
+.form-register{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid gray;
+    padding: 20px;
+}

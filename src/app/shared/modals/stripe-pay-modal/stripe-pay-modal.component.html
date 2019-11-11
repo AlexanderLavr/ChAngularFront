@@ -1,0 +1,13 @@
+<div *ngIf="invalidError" style="color:red">
+    {{ invalidError.message }}
+</div>
+
+<stripe-card style="width: 400px;"
+    #stripeCard
+    (catch) = "onStripeError($event)"
+    [(invalid)] = "invalidError"
+    (tokenChange) = "setStripeToken($event)"
+    (sourceChange) = "setStripeSource($event)">
+</stripe-card>
+
+<button type="button" (click)="stripeCard.createToken()">Confirm Payment</button>

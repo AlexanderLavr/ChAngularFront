@@ -1,0 +1,71 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.container{
+    min-width: min-content;
+    margin: 50px auto;
+}
+.form-edit-user{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 2px 1px #d2d2d2;
+    border-radius: 4px;
+    background: #fff;
+    padding: 20px;
+    width: fit-content;
+    margin: auto;
+    .names{
+        display: flex;
+        mat-form-field{
+            margin-right: 20px;
+        }
+    }
+    button{
+        width: 115px;
+        display: flex;
+        align-self: flex-end;
+        justify-content: center;
+        background: #7fd9f0;
+        color: #fff;
+        border: 0;
+        box-shadow: 0 0 3px 1px;
+        border-radius: 4px;
+    }
+}
+
+.password-container{
+    max-width: 445px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 50px;
+    .form-edit-password{
+        display: flex;
+        flex-direction: column;
+        .item-field{
+            position: relative;
+            mat-form-field{
+                margin-right: 18px;
+            }
+        }
+        span{
+            position: absolute;
+            top: 110%;
+            right: 18px;
+            font-size: 12px;
+        }
+        button{
+            width: 115px;
+            display: flex;
+            align-self: flex-end;
+            justify-content: center;
+            background: #7fd9f0;
+            color: #fff;
+            border: 0;
+            box-shadow: 0 0 3px 1px;
+            border-radius: 4px;
+            margin-top: 40px;
+        }
+    }
+}
+.error{
+    color: red !important;
+}

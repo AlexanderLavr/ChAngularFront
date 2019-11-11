@@ -1,0 +1,53 @@
+<ng-container class="card-container">
+    <div  class="holder-card" *ngIf="arrayBooks.length !== 0; else elseTemplate">
+        <div class="main-container">
+        
+            <div class="total-count" [ngClass]="{'check': selectBook}">
+                <h2>For buy</h2>
+                <div class="checkbox-container main-checkbox-container">
+                    <input type="checkbox" id="main-custom" class="main-checkbox" checked={{selectAll}} (click)="checkAll($event)"/>
+                    <label for="main-custom">Select all</label>
+                </div>
+                <p>Total count: {{countTotalPrice(arrayBooks)}} грн.</p>
+                <button (click)="buy()">Buy</button>
+                <span>Attention! The payment amount will be converted to USD at the exchange rate: {{usdCourse}}</span>
+            </div>
+
+            <div *ngFor="let i of arrayBooks" class="card">
+                <mat-card class="item-card">
+                    <mat-card-title>{{i.title}}</mat-card-title>
+                    <div class="content-holder">
+                        <div class="image-item">
+                            <img src={{i.choosePhoto}}>
+                        </div>
+                        <div class="context-item">
+                            <div class="item-nav-button">
+                                <button class="nav-button" mat-icon-button id="su{{i._id}}" (click)="buttonMult($event)">
+                                    <mat-icon>exposure_neg_1</mat-icon>
+                                </button>
+                                <button class="nav-button" mat-icon-button id="ad{{i._id}}" (click)="buttonAdd($event)">
+                                    <mat-icon>exposure_plus_1</mat-icon>
+                                </button>
+                            </div>
+                            <p>Колличество: {{i.totalCount}}</p>
+                            <p>Цена: {{i.price * i.totalCount}}</p>
+                        </div>
+                    </div>
+                    <button  class="delete-button" mat-icon-button id="de{{i._id}}" (click)="buttonDelete($event, arrayBooks)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="ch{{i._id}}" class="secondary-checkbox" (click)="check($event)" checked="{{i.checked}}"/>
+                        <label for="ch{{i._id}}"></label>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+            
+    </div> 
+    <ng-template #elseTemplate>
+        <h2>Ничего не выбрано!</h2>
+    </ng-template>
+</ng-container>
+

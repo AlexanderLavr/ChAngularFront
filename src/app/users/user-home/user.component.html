@@ -1,0 +1,34 @@
+<ng-container *ngIf="downloadArrayBook; else elseTemplate">
+  <form [formGroup]="searchForm" class="searchForm">
+    <mat-form-field>
+      <input matInput placeholder="Search book" formControlName="serchBook">
+    </mat-form-field>
+  </form>
+  <div class="container">
+    <div *ngFor="let i of arrayBooks" class="card">
+      <mat-card class="card-conent">
+        <mat-card-header>
+          <mat-card-title>{{i.title}}</mat-card-title>
+        </mat-card-header>
+        <a routerLink="{{i._id}}">
+          <img mat-card-avatar id="vi{{i._id}}" class="imgBook" src={{i.choosePhoto}} (click)="viewBook($event)">
+        </a>
+        <mat-card-content>
+          {{i.description.substring(0, 21)}}...
+          <p class="price">{{i.price}} грн</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button id="bo{{i._id}}" (click)="inCart($event)" class="in-cart">В корзину</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div> 
+</ng-container>
+<ng-template #elseTemplate>
+  <div class="spiner">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
+
+
+

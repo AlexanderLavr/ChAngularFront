@@ -1,0 +1,43 @@
+<h1>{{data.title}}</h1>
+<form [formGroup]="bookForm" class="book-form">
+    <mat-form-field>
+      <input matInput placeholder="title" formControlName="title">
+      <mat-error *ngIf="bookForm.get('title').hasError('required')">
+            Required field!     
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="price" formControlName="price">
+      <mat-error *ngIf="bookForm.get('price').hasError('required')">
+            Required field! 
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="amount" formControlName="amount" >
+        <mat-error *ngIf="bookForm.get('amount').hasError('required')">
+            Required field! 
+        </mat-error>
+    </mat-form-field>
+    <input type="file" (change)="selectPhoto($event)">
+    <div>
+        <img src={{imgBook}} alt="">
+    </div>
+    <mat-form-field>
+        <input matInput placeholder="choosePhoto" formControlName="choosePhoto" >
+        <mat-error *ngIf="bookForm.get('choosePhoto').hasError('required')">
+            You must choose a photo book! 
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="description" formControlName="description" >
+        <mat-error *ngIf="bookForm.get('description').hasError('required')">
+            Required field! 
+        </mat-error>
+    </mat-form-field>
+    <ng-container *ngIf="editBook; else elseTemplate">
+        <button mat-button id="" (click)="closeEditBook()">Edit</button>
+    </ng-container>
+    <ng-template #elseTemplate>
+        <button mat-button id="" (click)="closeAddBooks()">Add</button>
+    </ng-template>
+</form>

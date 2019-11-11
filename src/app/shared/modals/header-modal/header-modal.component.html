@@ -1,0 +1,37 @@
+<ng-container *ngIf="data.cartModal">
+    <ng-container *ngIf="data.arrayBooks.length !== 0; else elseTemplate">
+        <div *ngFor="let i of data.arrayBooks" class="modal-books-container">
+            <div class="modal-books-item">
+            <button mat-icon-button id="de{{i._id}}" (click)="buttonDelete($event, data.arrayBooks)">
+                <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-icon-button id="su{{i._id}}" (click)="buttonMult($event, data.arrayBooks)">
+                <mat-icon>exposure_neg_1</mat-icon>
+            </button>
+            <img mat-card-avatar class="imgBook" src={{i.choosePhoto}}>
+            <button mat-icon-button id="ad{{i._id}}" (click)="buttonAdd($event, data.arrayBooks)">
+                <mat-icon>exposure_plus_1</mat-icon>
+            </button>
+            <span>Колличество: {{i.totalCount}}</span>
+            <span>Цена: {{i.price * i.totalCount}}</span>
+            </div>
+        </div>
+        <div class="modal-books-total-count">
+            Общая стоимость: {{countTotalPrice(data.arrayBooks)}}
+        </div>
+    </ng-container>
+    <ng-template #elseTemplate>
+        <h2>Ничего не выбрано!</h2>
+    </ng-template>
+</ng-container>
+      
+<ng-container *ngIf="!data.cartModal">
+    <h1 mat-dialog-title>Edit Profile</h1>
+    <div class="holder-avatar-img" mat-dialog-content>
+        <img  id="modal-photo" src={{data.profile}} alt="" >
+    </div>
+    <input class="choose-img" type="file" (change)="chooseImg($event, data.profile)">
+    <div mat-dialog-actions>
+        <button mat-button (click)="closeAvatarModal(data.id)">Save</button>
+    </div>
+</ng-container>

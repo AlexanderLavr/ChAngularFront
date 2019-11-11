@@ -1,0 +1,77 @@
+<div class="container">
+    <form class="form-edit-user" [formGroup]="editUserForm">
+        <div class="names">
+            <mat-form-field>
+                <input matInput  placeholder="firstname" formControlName="firstname" />
+                <mat-error *ngIf="editUserForm.get('firstname').hasError('required')">
+                    Min string length is 3! 
+                </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field>
+                <input matInput  placeholder="secondname" formControlName="secondname" />
+                <mat-error *ngIf="editUserForm.get('secondname').hasError('required')">
+                    Min string length is 3! 
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <input matInput  placeholder="email" formControlName="email" />
+                <mat-error *ngIf="editUserForm.get('email').hasError('required')">
+                    Invalid Email! 
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <button mat-button (click)="editProfile()">Edit profile</button>
+    </form>
+
+
+
+    <div class="password-container">
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Reset password
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <form class="form-edit-password" [formGroup]="editPasswordForm">
+                    <div class="item-field">
+                        <mat-form-field [ngClass]="{'mat-form-field-invalid ng-invalid': !matchPassword}">
+                            <input matInput [ngClass]="{'error': !matchPassword}" 
+                            type="password" placeholder="New password" 
+                            formControlName="password"
+                            (click)="dropError()"
+                            (change)="dropError()"/>
+                            <mat-error>
+                                Min string length is 3! 
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field [ngClass]="{'mat-form-field-invalid ng-invalid': !matchPassword}">
+                            <input matInput [ngClass]="{'error': !matchPassword}" 
+                            type="password" placeholder="Confirm password" 
+                            formControlName="confirmPassword"
+                            (click)="dropError()"
+                            (change)="dropError()"/>
+                            <mat-error>
+                                Min string length is 3! 
+                            </mat-error>
+                        </mat-form-field>
+                        <span class="error" *ngIf="!matchPassword">The password don't match!</span>
+                    </div>
+                    <button mat-button (click)="editPassword()">Save password</button>
+                </form>
+            </mat-expansion-panel>
+            <mat-expansion-panel 
+                (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false">
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    
+    <mat-error *ngIf="error">
+        {{error}}
+    </mat-error>
+</div>

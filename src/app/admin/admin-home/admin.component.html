@@ -1,0 +1,99 @@
+<mat-tab-group > 
+  <mat-tab label="Users">
+    <table mat-table [dataSource]="dataSource"  class="mat-elevation-z8">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef>email</th>
+          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+        <ng-container matColumnDef="firstname">
+          <th mat-header-cell *matHeaderCellDef>firstname</th>
+          <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+        </ng-container>
+        <ng-container matColumnDef="secondname">
+          <th mat-header-cell *matHeaderCellDef>secondname</th>
+          <td mat-cell *matCellDef="let element"> {{element.secondname}} </td>
+        </ng-container>
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef>edit</th>
+          <td mat-cell *matCellDef="let element"> 
+            <button id="ed{{element.id}}" (click)="editUser($event)" mat-icon-button>
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef>delete</th>
+          <td mat-cell *matCellDef="let element">  
+            <button id="de{{element.id}}" (click)="deleteUser($event)" mat-icon-button>
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+  </mat-tab > 
+
+  <mat-tab  label="Books"> 
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSourceBook" >
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>ID
+            <button mat-icon-button class="sort"
+              id="_id"
+              (click)="sort($event)"><mat-icon>unfold_more</mat-icon></button>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element._id}} </td>
+        </ng-container>
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef>title
+              <button mat-icon-button class="sort"
+              id="title"
+              (click)="sort($event)"><mat-icon>unfold_more</mat-icon></button>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef>price
+              <button mat-icon-button class="sort"
+              id="price"
+              (click)="sort($event)"><mat-icon>unfold_more</mat-icon></button>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+        </ng-container>
+        <ng-container matColumnDef="amount">
+          <th mat-header-cell *matHeaderCellDef>amount
+              <button mat-icon-button class="sort"
+              id="amount"
+              (click)="sort($event)"><mat-icon>unfold_more</mat-icon></button>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+        </ng-container>
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef>edit</th>
+          <td mat-cell *matCellDef="let element"> 
+            <button id="ed{{element._id}}" (click)="openModalEditBook($event)" mat-icon-button><mat-icon>edit</mat-icon></button>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef>delete</th>
+          <td mat-cell *matCellDef="let element">  
+              <button id="de{{element._id}}" (click)="deleteBook($event)" mat-icon-button><mat-icon>delete</mat-icon></button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsBooks"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsBooks;"></tr>
+      </table>
+      <div class="container-paging">
+        <button mat-icon-button (click)="previousPage()"><mat-icon>navigate_before</mat-icon></button>
+        <span>{{currentPage + 1}} page for {{allPages}}</span>
+        <button mat-icon-button (click)="nextPage()"><mat-icon>navigate_next</mat-icon></button>
+      </div>
+    </div>
+    <button mat-icon-button class="addBook" (click)="openModalBook()">Add book</button>
+  </mat-tab >  
+</mat-tab-group >

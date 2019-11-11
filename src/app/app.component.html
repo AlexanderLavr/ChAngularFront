@@ -1,0 +1,87 @@
+<mat-drawer-container class="drawer">
+    <header *ngIf="!resetPassword">
+        <button mat-icon-button (click)="drawer.open()" class="drawer-open"><mat-icon>list</mat-icon></button>
+        <span *ngIf="!isAdmin">Welcom here!!! -E!</span>
+        <div  class="header-content"*ngIf="isAdmin">
+            <span>Book's shop</span>
+            <button  mat-icon-button (click)="logOut()" class="header-logout">
+                <mat-icon>exit_to_app</mat-icon>
+            </button>
+        </div>
+    </header>
+    <mat-drawer #drawer class="drawer-holder-content">
+        <div class="overlay">
+        <div class="drawer-content">
+            <ng-container *ngIf="isAdmin === 'admin'">
+                <div class="profile-container">
+                    <mat-card class="item-photo">
+                        <img mat-card-avatar src="{{profile}}" class="item-photo-img">
+                    </mat-card>
+                    <div class="item-buttons">
+                        <button (click)="openProfileModal($e)">Upload photo</button>
+                    </div>
+                </div>
+                <div class="name-app-container">
+                    <span>Book's shop</span>
+                </div>
+                <div class="nav-container">
+                        <a routerLink="admin" routerLinkActive="active">
+                        <button mat-icon-button>
+                            <mat-icon>house</mat-icon> Admin Home
+                        </button>
+                    </a>
+                </div>
+                <div class="button-container">
+                   <!-- some button -->
+                </div>
+                <span class="button-line"></span>
+                <button mat-icon-button (click)="logOut()" class="button-logout">LogOut <mat-icon>exit_to_app</mat-icon></button>
+            </ng-container>
+
+            <ng-container *ngIf="isAdmin === 'user'">
+                <div class="profile-container">
+                    <mat-card class="item-photo">
+                        <img mat-card-avatar src="{{profile}}" class="item-photo-img">
+                    </mat-card>
+                    <div class="item-buttons">
+                        <button (click)="openProfileModal($e)">Upload photo</button>
+                    </div>
+                </div>
+                <div class="name-app-container">
+                    <span>Book's shop</span>
+                </div>
+                <div class="nav-container">
+                    <a routerLink="user" routerLinkActive="active">
+                        <button mat-icon-button>
+                            <mat-icon>house</mat-icon>User Home
+                        </button>
+                    </a>
+                    <a routerLink="editUser" routerLinkActive="active">
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>Edit user's profile
+                        </button>
+                    </a>
+                </div>
+                <div class="button-container">
+                    <a routerLink="cart" routerLinkActive="active">
+                        <button mat-icon-button>
+                            <mat-icon matBadge={{getCountBook()}}>add_shopping_cart</mat-icon>Cart 
+                        </button>
+                    </a>
+                </div>
+                <span class="button-line"></span>
+                <button mat-icon-button (click)="logOut()" class="button-logout">LogOut <mat-icon>exit_to_app</mat-icon></button>
+            </ng-container>
+
+            <ng-container *ngIf="!isAdmin">
+                <ul class="drawel-left">
+                    <li class="holder-link"><a routerLink="login" routerLinkActive="active">Login</a></li>
+                    <li class="holder-link"><a routerLink="regestration" routerLinkActive="active">Regestration</a></li>
+                </ul>
+            </ng-container>
+        </div>
+    </div>
+    </mat-drawer>
+    <router-outlet></router-outlet>
+</mat-drawer-container>
+

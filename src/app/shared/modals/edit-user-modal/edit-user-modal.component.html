@@ -1,0 +1,22 @@
+<form [formGroup]="editUserForm" class="edit-user-form">
+    <span>{{data.id}}</span>
+    <mat-form-field>
+        <input matInput placeholder="firstname" formControlName="firstname">
+        <mat-error *ngIf="editUserForm.get('firstname').hasError('required')">
+            Min string length is 3! 
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="secondname" formControlName="secondname">
+        <mat-error *ngIf="editUserForm.get('secondname').hasError('required')">
+            Min string length is 3! 
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="email" formControlName="email" >
+        <mat-error *ngIf="editUserForm.get('email').hasError('required')">
+            Invalid Email! 
+        </mat-error>
+    </mat-form-field>
+    <button mat-button id="ed{{data.id}}" (click)="closeEditUsers($event)">Save</button>
+</form>
